@@ -1,0 +1,12 @@
+name: NyaaMailer
+version: '${project.version}'
+main: cat.nyaa.mailer.NyaaMailer
+api-version: 1.18
+authors: [ metadevs ]
+description: Express Delivery for the server
+depend:
+  - LockettePro
+  - WorldGuard
+  - Vault
+commands:
+  mailer:

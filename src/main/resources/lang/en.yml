@@ -1,0 +1,42 @@
+player-not-found: "&cAre you sure that this player has"
+item-not-found: "&cAre you sure that you have an item in your hand?"
+item-already-sent: "&cYou have already sent this item to this player!"
+item-recieved-notification: "&aYou have received an item from &e%player%&a. Get it now!"
+item-sent: "&aYou have sent an item to &b%player%&a!"
+error-occurred: "&cAn error occurred! Please try again , if the problem persist contact an administrator!"
+not-enough-balance: "&cYou don't have enough balance to send this item!"
+not-owner: "&cYou are not the owner of this chest!"
+cannot-send-to-self: "&cYou cannot send a maail to yourself!"
+no-permission: "&cYou don't have permission to use this command!"
+purge-success: "Purged all mail for %player%."
+mail-check-result: "&aYou have %amount% new items!"
+no-items-to-retrieve: "&cYou don't have any items to retrieve!"
+inventory-full: "&cYour inventory is full!"
+all-items-retrieved: "&aYou have retrieved all items!"
+#############################################################################################
+#                                                                                           #
+#                                       Chests                                              #
+#                                                                                           #
+#############################################################################################
+chest-sent: "&aYou have sent %amount% items to &b%player%&a!"
+chest-cooldown-notify: "You have %time% seconds left to select(right-click) a chest to send"
+chest-selection-timeout: "You took to long to select a chest. Please re-execute the command."
+selected-chest-worldguard: "&cYou cannot use this chest!"
+alredy-selecting-chest: "&cYou are already selecting a chest!"
+chest-empty: "&cThis chest is empty!"
+chest-received: "You have received %amount% items from %player%. Click Here to retrieve it to your inbox chest if you have one"
+#############################################################################################
+#                                                                                           #
+#                                     Inboxes                                               #
+#                                                                                           #
+#############################################################################################
+not-owning-inbox: "&cYou have not created your inbox!"
+error-inbox-removed: "&cAre you sure that the block is a chest?"
+inbox-full: "&cYour inbox is full empty it and execute again!"
+inbox-not-chest: "&cThe inbox is not a chest!"
+inbox-removed: "&aYou have removed your inbox!"
+inbox-selection-timeout: "You took to long to select a chest. Please re-execute the command."
+inbox-cooldown-notify: "You have %time% seconds left to select(right-click) a chest to use as inbox"
+alredy-selecting-inbox: "&cYou are already selecting an inbox!"
+inbox-selected: "&aYou have selected this chest as your inbox!"
+

@@ -1,0 +1,11 @@
+lang: en
+fee:
+  hand: 1 # cost for 1 itemstack delivery default : 0
+  chest: 20 # cost for a chest delivery
+  storage: 1 # cost for temp storage after free duration, per itemstack per day.
+chest:
+  timeout: 10 # timeout in seconds for selecting a chest to deliver default: 10
+inbox:
+  timeout: 10 # timeout in seconds for selecting an inbox (chest) where receive items default: 10
+storage-free-days: 7
+database: 'nyaamailer.db'
