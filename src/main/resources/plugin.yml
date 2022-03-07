@@ -8,5 +8,8 @@ depend:
   - LockettePro
   - WorldGuard
   - Vault
+libraries:
+  - org.xerial:sqlite-jdbc:3.36.0.3
 commands:
   mailer:
+    description: NyaaMailer main command
