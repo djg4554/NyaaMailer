@@ -1,0 +1,41 @@
+player-not-found: "&c该玩家未找到。"
+item-not-found: "&c您是想发送空手道吗？"
+item-already-sent: "&c您已经将该物品发送给此玩家了。"
+item-recieved-notification: "&7您收到了来自 &6%player%&7 的新包裹。&d&n现在收取"
+item-sent: "&7您发送了包裹到 &6%player%"
+error-occurred: "&c系统错误，请稍后重试。如果此问题持续，请联系管理员。"
+not-enough-balance: "&c您没有足够的余额来发送此包裹。"
+not-owner: "&c您没有此箱子的权限。"
+cannot-send-to-self: "&c您不能给您自己发送包裹。"
+no-permission: "&c您没有权限执行此命令。"
+purge-success: "&4已清除 &6%player%&4 的所有包裹。"
+mail-check-result: "&7您有 &b%amount%&7 个包裹待领取。"
+no-items-to-retrieve: "&c您没有待领取的包裹。"
+inventory-full: "&c您的背包已满。"
+all-items-retrieved: "&7您已收取所有包裹。"
+#############################################################################################
+#                                                                                           #
+#                                       Chests                                              #
+#                                                                                           #
+#############################################################################################
+chest-sent: "&7您发送了 &b%amount%&7 个物品给 &6%player%。"
+chest-cooldown-notify: "&7您有 &f%time%&7 秒时间右键点击一个箱子以发送..."
+chest-selection-timeout: "&7发送超时，请重新选择。"
+selected-chest-worldguard: "&c您不能使用此箱子。"
+alredy-selecting-chest: "&c您已经选择了一个箱子。"
+chest-empty: "&c您在发送一个空箱子。"
+chest-received: "&7您收到了来自 &6%player%&7 的 &b%amount%&7 个新包裹。如果您已设置快递箱，&d&n点击这里收取..."
+#############################################################################################
+#                                                                                           #
+#                                     Inboxes                                               #
+#                                                                                           #
+#############################################################################################
+not-owning-inbox: "&c您尚未设置快递箱。"
+error-inbox-removed: "&c您想拿实心块当箱子吗？"
+inbox-full: "&c您的快递箱已满，请清空后再次收取。"
+inbox-not-chest: "&c快递箱不是箱子？！"
+inbox-removed: "&7您已移除快递箱。"
+inbox-selection-timeout: "&c您手速太慢了，请重新设置快递箱。"
+inbox-cooldown-notify: "&7您有 &f%time%&7 秒时间右键点击一个箱子，将其设置为快递箱。&f&l并且不要忘记它在哪里。"
+alredy-selecting-inbox: "&c您已经选择了一个快递箱。"
+inbox-selected: "&7您已设置此箱子为您的快递箱。"
