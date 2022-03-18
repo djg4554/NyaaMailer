@@ -15,6 +15,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.CompletableFuture;
@@ -58,7 +59,7 @@ public class MailManager {
         plugin.getDataManager().sendItem(encodeItem(itemStack), sender.getUniqueId(), receiver.getUniqueId());
     }
 
-    public void sendItem(ItemStack itemStack, Player sender, OfflinePlayer receiver) {
+    public void sendItem(ItemStack itemStack, Player sender,OfflinePlayer receiver) {
         plugin.getPlayerManager().removeItemFromInventory(sender, itemStack);
 
         plugin.getDataManager().sendItem(encodeItem(itemStack), sender.getUniqueId(), receiver.getUniqueId()).whenComplete(
@@ -78,7 +79,7 @@ public class MailManager {
             private final OfflinePlayer aReceiver = receiver;
             @Override
             public void run() {
-                player.sendMessage(plugin.getMessage("item-sent", "&aMail sent."));
+                player.sendMessage(plugin.getMessage("item-sent", "&aMail sent.").replace("%receiver%", receiver.getName()));
                 if (aReceiver.isOnline()) {
                     TextComponent textComponent = Component.text(plugin.getMessage("item-received-notification", "&aYou have received an item from &e%player%&a. Get it Now").replace("%player%", player.getName()))
                             .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.RUN_COMMAND, "/mailer retrieve latest"));
