@@ -12,7 +12,6 @@ public class PlayerManager {
 
     public PlayerManager(NyaaMailer plugin) {
         this.plugin = plugin;
-
     }
 
 
@@ -25,42 +24,32 @@ public class PlayerManager {
     }
 
     public boolean canPayFee(Player sender, FeeType feeType) {
-        double balance = plugin.getEconomy().getBalance(sender);
-        switch (feeType) {
-            case ITEM:
-                return balance >= plugin.getConfig().getDouble("fee.hand", 0.0);
-            case CHEST:
-                return balance >= plugin.getConfig().getDouble("fee.chest", 0.0);
-            case STORAGE:
-                return balance >= plugin.getConfig().getDouble("fee.storage", 0.0);
-            default:
-                return false;
-        }
+        double balance = plugin.getEconomy().getPlayerBalance(sender.getUniqueId());
+        return switch (feeType) {
+            case ITEM -> balance >= plugin.getConfig().getDouble("fee.hand", 0.0);
+            case CHEST -> balance >= plugin.getConfig().getDouble("fee.chest", 0.0);
+            case STORAGE -> balance >= plugin.getConfig().getDouble("fee.storage", 0.0);
+        };
     }
 
     public void payFee(Player sender, FeeType feeType) {
-        double fee = 0.0;
-        switch (feeType) {
-            case ITEM:
-                fee = plugin.getConfig().getDouble("fee.hand", 10.0);
-                break;
-            case CHEST:
-                fee = plugin.getConfig().getDouble("fee.chest", 10.0);
-                break;
-            case STORAGE:
-                fee = plugin.getConfig().getDouble("fee.storage", 10.0);
-                break;
-        }
-        plugin.getEconomy().withdrawPlayer(sender, fee);
-
+        double fee = switch (feeType) {
+            case ITEM -> plugin.getConfig().getDouble("fee.hand", 10.0);
+            case CHEST -> plugin.getConfig().getDouble("fee.chest", 10.0);
+            case STORAGE -> plugin.getConfig().getDouble("fee.storage", 10.0);
+        };
+        plugin.getEconomy().withdrawPlayer(sender.getUniqueId(), fee);
+        plugin.getEconomy().depositSystemVault(fee);
     }
 
     public boolean canPayFee(OfflinePlayer player, Long items) {
-        double balance = plugin.getEconomy().getBalance(player);
+        double balance = plugin.getEconomy().getPlayerBalance(player.getUniqueId());
         return balance >= plugin.getConfig().getDouble("fee.storage", 1) * items;
     }
 
     public void payFee(OfflinePlayer player, Long items) {
-        plugin.getEconomy().withdrawPlayer(player, plugin.getConfig().getDouble("fee.storage", 1.0) * items);
+        var fee = plugin.getConfig().getDouble("fee.storage", 1.0) * items;
+        plugin.getEconomy().withdrawPlayer(player.getUniqueId(), fee);
+        plugin.getEconomy().depositSystemVault(fee);
     }
 }

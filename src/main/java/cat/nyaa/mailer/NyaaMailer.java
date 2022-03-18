@@ -1,5 +1,6 @@
 package cat.nyaa.mailer;
 
+import cat.nyaa.ecore.EconomyCore;
 import cat.nyaa.mailer.inbox.listeners.InboxOpened;
 import cat.nyaa.mailer.chest.manager.ChestManager;
 import cat.nyaa.mailer.command.MailCommand;
@@ -17,7 +18,6 @@ import cat.nyaa.mailer.sql.SQLiteManager;
 import cat.nyaa.mailer.utils.TaskScheduler;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
-import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -35,7 +35,7 @@ public final class NyaaMailer extends JavaPlugin {
     private InboxManager inboxManager;
     private TaskScheduler taskScheduler;
 
-    private Economy econ;
+    private EconomyCore econ;
 
     @Override
     public void onEnable() {
@@ -111,12 +111,12 @@ public final class NyaaMailer extends JavaPlugin {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
             return false;
         }
-        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+        RegisteredServiceProvider<EconomyCore> rsp = getServer().getServicesManager().getRegistration(EconomyCore.class);
         if (rsp == null) {
             return false;
         }
         econ = rsp.getProvider();
-        return econ != null;
+        return true;
     }
 
 
@@ -165,10 +165,9 @@ public final class NyaaMailer extends JavaPlugin {
     }
 
 
-    public Economy getEconomy() {
+    public EconomyCore getEconomy() {
         return econ;
     }
-
 
     public Component componentColor(String text) {
         return LegacyComponentSerializer.legacyAmpersand().deserialize(text);
