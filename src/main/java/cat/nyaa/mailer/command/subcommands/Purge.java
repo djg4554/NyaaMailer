@@ -16,7 +16,7 @@ public class Purge extends SubCommand<NyaaMailer> {
     public void execute() {
 
         if (!(sender.isOp() || sender.hasPermission("mailer.admin"))) {
-            sender.sendMessage(plugin.getMessage("no-permission", "You don't have permission to do this."));
+            sender.sendMessage(plugin.getMessage("player-no-permission", "You don't have permission to do this."));
             return;
         }
 

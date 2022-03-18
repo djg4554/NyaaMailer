@@ -1,13 +1,24 @@
+#############################################################################################
+#                                                                                           #
+#                                       Errors                                              #
+#                                                                                           #
+#############################################################################################
+error-occurred: "&cAn error occurred! Please try again , if the problem persist contact an administrator!"
+
 player-not-found: "&cAre you sure that this player has"
+player-player-no-permission: "&cYou don't have permission to use this command!"
+player-not-enough-balance: "&cYou don't have enough balance to send this item!"
+
+
 item-not-found: "&cAre you sure that you have an item in your hand?"
 item-already-sent: "&cYou have already sent this item to this player!"
-item-recieved-notification: "&aYou have received an item from &e%player%&a. Get it now!"
+item-received-notification: "&aYou have received an item from &e%player%&a. Get it now!"
 item-sent: "&aYou have sent an item to &b%player%&a!"
-error-occurred: "&cAn error occurred! Please try again , if the problem persist contact an administrator!"
-not-enough-balance: "&cYou don't have enough balance to send this item!"
-not-owner: "&cYou are not the owner of this chest!"
+item-received: "&aYou opened the last mail!"
+#
+#
 cannot-send-to-self: "&cYou cannot send a maail to yourself!"
-no-permission: "&cYou don't have permission to use this command!"
+#
 purge-success: "Purged all mail for %player%."
 mail-check-result: "&aYou have %amount% new items!"
 no-items-to-retrieve: "&cYou don't have any items to retrieve!"
@@ -18,13 +29,15 @@ all-items-retrieved: "&aYou have retrieved all items!"
 #                                       Chests                                              #
 #                                                                                           #
 #############################################################################################
+not-owner: "&cYou are not the owner of this chest!"
 chest-sent: "&aYou have sent %amount% items to &b%player%&a!"
 chest-cooldown-notify: "You have %time% seconds left to select(right-click) a chest to send"
 chest-selection-timeout: "You took to long to select a chest. Please re-execute the command."
 selected-chest-worldguard: "&cYou cannot use this chest!"
-alredy-selecting-chest: "&cYou are already selecting a chest!"
+already-selecting-chest: "&cYou are already selecting a chest!"
 chest-empty: "&cThis chest is empty!"
 chest-received: "You have received %amount% items from %player%. Click Here to retrieve it to your inbox chest if you have one"
+not-a-chest: "&cThis is not a chest!"
 #############################################################################################
 #                                                                                           #
 #                                     Inboxes                                               #
@@ -37,6 +50,36 @@ inbox-not-chest: "&cThe inbox is not a chest!"
 inbox-removed: "&aYou have removed your inbox!"
 inbox-selection-timeout: "You took to long to select a chest. Please re-execute the command."
 inbox-cooldown-notify: "You have %time% seconds left to select(right-click) a chest to use as inbox"
-alredy-selecting-inbox: "&cYou are already selecting an inbox!"
+already-selecting-inbox: "&cYou are already selecting an inbox!"
 inbox-selected: "&aYou have selected this chest as your inbox!"
-
+#############################################################################################
+#                                                                                           #
+#                                     Inboxes                                               #
+#                                                                                           #
+#############################################################################################
+help:
+  - "&m&7      [&r&c&lNyaaMailer&m&7]    "
+  -  ""
+#Admin command
+  - "&7/mailer purge [player] &7- &r&cPurge the items that the player sent and has not been received"
+  -  ""
+  - "&7/mailer reload &7- &r&cReload config"
+  -  ""
+  - "&7/mailer send [player] &7- Send items in main hand to [player]"
+  - ""
+  - "&7/mailer sendchest [player] &7- Send items in chest to [player]"
+  - ""
+  - "&7/mailer check &7- &r&cCheck your mail"
+  - ""
+  - "&7/mailer retrieve [confirm|latest|chest]&7- &r&cretrieve the items that you have received"
+  - "&a&l[confirm] &7- &r&cRetrieve all the items that you have received at your current location"
+  - "&a&l[latest] &7- &r&cRetrieve the latest items that you have received"
+  - "&a&l[chest] &7- &r&cRetrieve all the items that you have received in your inbox chest"
+  - ""
+  - "&7/mailer inbox [set|remove]&7- &r&cManage your inbox"
+  - "&a&l[set] &7- &r&cSet your inbox to a chest."
+  - "&a&l[remove] &7- &r&cRemove your inbox"
+  - ""
+  - "&c/mailer help &7- &r&cShow this help"
+  - ""
+  - "&m&7      [&r&c&lNyaaMailer&m&7]      "

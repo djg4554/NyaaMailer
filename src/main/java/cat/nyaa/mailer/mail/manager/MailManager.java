@@ -15,7 +15,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.CompletableFuture;
@@ -36,7 +35,7 @@ public class MailManager {
             return;
         }
         if (!plugin.getPlayerManager().canPayFee(sender, FeeType.ITEM)) {
-            sender.sendMessage(plugin.getMessage("not-enough-balance", "&cYou don't have enough balance to send this item."));
+            sender.sendMessage(plugin.getMessage("player-not-enough-balance", "&cYou don't have enough balance to send this item."));
             return;
         }
 
@@ -48,7 +47,7 @@ public class MailManager {
                 return;
             }
             if (hasSent) {
-                sender.sendMessage(plugin.getMessage("item-alredy-sent", "&cYou have already sent this item to this player."));
+                sender.sendMessage(plugin.getMessage("item-already-sent", "&cYou have already sent this item to this player."));
             } else {
                 sendItem(itemToSend, sender, receiver);
             }

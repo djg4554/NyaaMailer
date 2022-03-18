@@ -42,7 +42,7 @@ public class InboxSelection implements Listener {
                 event.getPlayer().sendMessage(plugin.getMessage("not-owner", "&cYou are not the owner of this chest. Please select another chest and try again."));
                 break;
             case CHEST_PROTECTED:
-                event.getPlayer().sendMessage(plugin.getMessage("selected-chest-locked", "&cYou cannot use this chest. Please try again."));
+                event.getPlayer().sendMessage(plugin.getMessage("selected-chest-worldguard", "&cYou cannot use this chest. Please try again."));
                 break;
             case SUCCESS:
                 plugin.getSelectorManager().cancelSelectingInbox(event.getPlayer());

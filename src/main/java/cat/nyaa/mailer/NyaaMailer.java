@@ -1,10 +1,10 @@
 package cat.nyaa.mailer;
 
 import cat.nyaa.ecore.EconomyCore;
-import cat.nyaa.mailer.inbox.listeners.InboxOpened;
 import cat.nyaa.mailer.chest.manager.ChestManager;
 import cat.nyaa.mailer.command.MailCommand;
 import cat.nyaa.mailer.data.manager.DataManager;
+import cat.nyaa.mailer.inbox.listeners.InboxOpened;
 import cat.nyaa.mailer.inbox.listeners.Load;
 import cat.nyaa.mailer.inbox.listeners.Unload;
 import cat.nyaa.mailer.inbox.managers.InboxManager;
@@ -22,6 +22,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.List;
 
 public final class NyaaMailer extends JavaPlugin {
 
@@ -173,4 +175,7 @@ public final class NyaaMailer extends JavaPlugin {
         return LegacyComponentSerializer.legacyAmpersand().deserialize(text);
     }
 
+    public List<String> getHelp() {
+        return langManager.getLanguageConfig().getStringList("help");
+    }
 }

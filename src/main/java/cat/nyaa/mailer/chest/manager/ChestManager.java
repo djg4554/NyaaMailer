@@ -63,7 +63,7 @@ public class ChestManager {
         Chest chest = (Chest) block.getState();
         Inventory inventory = chest.getInventory();
         if (!plugin.getPlayerManager().canPayFee(player, FeeType.CHEST)) {
-            player.sendMessage(plugin.getMessage("not-enough-balance", "You don't have enough balance to open this chest."));
+            player.sendMessage(plugin.getMessage("player-not-enough-balance", "You don't have enough balance to open this chest."));
             plugin.getSelectorManager().cancelSelectingChest(player);
             return;
         }
