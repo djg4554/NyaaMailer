@@ -156,17 +156,25 @@ public class MailManager {
                 return;
             }
 
-            ItemStack itemStack = mail.getItemStack();
             if (player.getInventory().firstEmpty() == -1) {
                 player.sendMessage(plugin.getMessage("inventory-full", "&cYour inventory is full"));
                 return;
             }
-            player.sendMessage(plugin.getMessage("item-received", "&aYou opened the last mail"));
-            player.getInventory().addItem(itemStack);
-            decreaseOrDeleteMail(mail);
+            sendLatest(player, mail);
+
 
 
         });
+    }
+
+    private void sendLatest(Player player, Mail mail){
+
+
+        decreaseOrDeleteMail(mail).thenAccept((aVoid) -> {
+            player.sendMessage(plugin.getMessage("item-received", "&aYou opened the last mail"));
+            player.getInventory().addItem(mail.getItemStack());
+        });
+
     }
 
     public void processChest(Player player) {
@@ -252,13 +260,15 @@ public class MailManager {
     }
 
 
-    private void decreaseOrDeleteMail(Mail mail) {
-        if (mail.getQty() > 1) {
-            mail.setQty(mail.getQty() - 1);
-            plugin.getDataManager().updateMail(mail);
-        } else {
-            plugin.getDataManager().deleteMail(mail);
-        }
+    private CompletableFuture<Void> decreaseOrDeleteMail(Mail mail) {
+        return CompletableFuture.runAsync(() -> {
+            if (mail.getQty() == 1) {
+                plugin.getDataManager().deleteMail(mail);
+            } else {
+                mail.setQty(mail.getQty() - 1);
+                plugin.getDataManager().updateMail(mail);
+            }
+        });
     }
 
     private void addItemsToChest(Player player, ArrayList<Mail> tMails, Inbox aInbox) {
